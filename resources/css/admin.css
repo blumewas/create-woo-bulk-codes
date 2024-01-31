@@ -1,0 +1,13 @@
+.form-control {
+    margin-bottom: 1rem;
+    display: flex;
+    flex-direction: column;
+}
+
+.w-50 {
+    width: 50%;
+}
+
+.mt-2 {
+    margin-top: 2rem;
+}

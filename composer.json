@@ -1,0 +1,28 @@
+{
+    "name": "blumewas/create-woo-bulk-codes",
+    "description": "Create woocommerce coupons and send them via mail",
+    "type": "wordpress",
+    "license": "MIT",
+    "autoload": {
+        "psr-4": {
+            "Andreasschneider\\CreateWooBulkCodes\\": "src/"
+        }
+    },
+    "authors": [
+        {
+            "name": "Andreas Schneider",
+            "email": "schneider@mindtwo.de"
+        }
+    ],
+    "require": {
+        "php": ">=8.0"
+    },
+    "require-dev": {
+        "wp-coding-standards/wpcs": "^3.0"
+    },
+    "config": {
+        "allow-plugins": {
+            "dealerdirect/phpcodesniffer-composer-installer": false
+        }
+    }
+}
