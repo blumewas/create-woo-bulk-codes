@@ -1,7 +1,11 @@
 {
     "name": "blumewas/create-woo-bulk-codes",
     "description": "Create woocommerce coupons and send them via mail",
-    "type": "wordpress",
+    "type": "wordpress-plugin",
+    "keywords": [
+        "wordpress",
+        "plugin"
+    ],
     "license": "MIT",
     "autoload": {
         "psr-4": {
