@@ -22,6 +22,8 @@ const generateCodes = (event) => {
             jQuery('#amount').val('');
             jQuery('#product_category').val('');
             jQuery('#emails').val('');
+
+            $('#generate-codes').prop("disabled",false);
         },
         error: function (response, textStatus, errorThrown) {
             const errors = response?.responseJSON?.errors ?? [];
@@ -38,10 +40,13 @@ const generateCodes = (event) => {
             }
 
             jQuery('#cbc-error-message').show();
+            $('#generate-codes').prop("disabled",false);
         }
     });
 };
 
 jQuery(document).ready(function ($) {
     $('#generate-codes').on('click', generateCodes);
+
+    $('#generate-codes').prop("disabled",true);
 });
