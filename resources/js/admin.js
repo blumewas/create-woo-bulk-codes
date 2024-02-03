@@ -1,6 +1,8 @@
 const generateCodes = (event) => {
     event.preventDefault();
 
+    jQuery('#generate-codes').prop("disabled",true);
+
     jQuery.ajax({
         type: 'POST',
         url: wp_vars.ajaxurl,
@@ -47,6 +49,4 @@ const generateCodes = (event) => {
 
 jQuery(document).ready(function ($) {
     $('#generate-codes').on('click', generateCodes);
-
-    $('#generate-codes').prop("disabled",true);
 });
