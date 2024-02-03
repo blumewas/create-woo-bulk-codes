@@ -20,7 +20,7 @@ $create_bulk_codes_nonce = wp_create_nonce( 'create_bulk_codes_nonce' );
         </div>
 
         <div class="form-control">
-            <label for="product_category">Product Category</label>
+            <label for="product_category">Product Kategorie (exkludieren)</label>
             <select name="product_category" id="product_category">
                 <option value="">Select a category</option>
                 <?php foreach ( get_terms( 'product_cat' ) as $term ) : ?>

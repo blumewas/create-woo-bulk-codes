@@ -25,7 +25,7 @@ class CreateCouponCode
 
         // categories
         if ( ! empty( $categories ) ) {
-            $coupon->set_product_categories( $categories );
+            $coupon->set_excluded_product_categories( $categories );
         }
 
         // set to one since we want to limit code usage to one per customer
