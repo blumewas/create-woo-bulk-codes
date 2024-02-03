@@ -25,7 +25,7 @@ const generateCodes = (event) => {
             jQuery('#product_category').val('');
             jQuery('#emails').val('');
 
-            $('#generate-codes').prop("disabled",false);
+            jQuery('#generate-codes').prop("disabled",false);
         },
         error: function (response, textStatus, errorThrown) {
             const errors = response?.responseJSON?.errors ?? [];
@@ -42,7 +42,7 @@ const generateCodes = (event) => {
             }
 
             jQuery('#cbc-error-message').show();
-            $('#generate-codes').prop("disabled",false);
+            jQuery('#generate-codes').prop("disabled",false);
         }
     });
 };
