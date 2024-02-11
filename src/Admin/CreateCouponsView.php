@@ -2,6 +2,10 @@
 
 namespace Andreasschneider\CreateWooBulkCodes\Admin;
 
+if (! defined('ABSPATH')) {
+    exit('');
+}
+
 class CreateCouponsView
 {
     public function __construct()
