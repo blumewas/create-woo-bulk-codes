@@ -4,14 +4,15 @@ namespace Andreasschneider\CreateWooBulkCodes\Admin;
 
 use Andreasschneider\CreateWooBulkCodes\Actions\CreateCouponCode;
 
-if ( ! defined( 'ABSPATH' ) ) {
-    die( '' );
+if (! defined('ABSPATH')) {
+    exit('');
 }
 
 class AdminAjax
 {
-    public function generateCodes() {
-        if( isset( $_POST['nonce'] ) && wp_verify_nonce( $_POST['nonce'], 'create_bulk_codes_nonce') ) {
+    public function generateCodes()
+    {
+        if (isset($_POST['nonce']) && wp_verify_nonce($_POST['nonce'], 'create_bulk_codes_nonce')) {
 
             $emails = explode("\n", $_POST['emails'] ?? '');
             $amount = intval($_POST['amount'] ?? 0, 10);
@@ -19,23 +20,23 @@ class AdminAjax
             $category = $_POST['product_category'] ?? '';
 
             $errors = [];
-            if ( empty(trim($_POST['emails'] ?? '')) ) {
+            if (empty(trim($_POST['emails'] ?? ''))) {
                 $errors[] = __('Please enter at least one email address');
             }
 
-            if ( empty($title) ) {
+            if (empty($title)) {
                 $errors[] = __('Please enter a title');
             }
 
-            if ( empty($amount) ) {
+            if (empty($amount)) {
                 $errors[] = __('Please enter an amount');
             }
 
-            if ( empty($category) ) {
+            if (empty($category)) {
                 $errors[] = __('Please select a category');
             }
 
-            if ( ! empty($errors) ) {
+            if (! empty($errors)) {
                 wp_send_json([
                     'message' => __('Please fix the following errors'),
                     'errors' => $errors,
@@ -48,16 +49,16 @@ class AdminAjax
             foreach ($emails as $email) {
                 $email = trim($email);
 
-                if ( ! empty( $email ) ) {
+                if (! empty($email)) {
                     $coupon = (new CreateCouponCode)($email, $amount, [$category]);
 
-                    $coupons[$email] = $coupon->get_code()  ;
+                    $coupons[$email] = $coupon->get_code();
 
                     // TODO send email
                     wp_mail(
                         $email,
                         "Dein Persönlicher Gutscheincode für $title",
-                        'Dein Persönlicher Gutscheincode lautet: ' . $coupon->get_code()
+                        'Dein Persönlicher Gutscheincode lautet: '.$coupon->get_code()
                     );
                 }
             }

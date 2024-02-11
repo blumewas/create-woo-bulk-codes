@@ -22,7 +22,8 @@
         "php": ">=8.0"
     },
     "require-dev": {
-        "wp-coding-standards/wpcs": "^3.0"
+        "wp-coding-standards/wpcs": "^3.0",
+        "laravel/pint": "^1.13"
     },
     "config": {
         "allow-plugins": {

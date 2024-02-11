@@ -7,14 +7,15 @@
  * Requires at least: 5.7
  * Author:            Andreasschneider
  */
-
-if ( ! defined( 'ABSPATH' ) ) {
-    die( '' );
+if (! defined('ABSPATH')) {
+    exit('');
 }
 
-require "vendor/autoload.php";
+require 'vendor/autoload.php';
+
+define('CREATE_WOO_BULK_CODES_PATH', plugin_dir_path(__FILE__));
+define('CREATE_WOO_BULK_CODES_URL', plugins_url('', __FILE__));
 
 use Andreasschneider\CreateWooBulkCodes\CreateBulkCodes;
 
 $header = new CreateBulkCodes();
-// $creator = $header->getCreatorName();

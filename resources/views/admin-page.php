@@ -1,5 +1,5 @@
 <?php
-$create_bulk_codes_nonce = wp_create_nonce( 'create_bulk_codes_nonce' );
+$create_bulk_codes_nonce = wp_create_nonce('create_bulk_codes_nonce');
 ?>
 
 <div>
@@ -23,11 +23,11 @@ $create_bulk_codes_nonce = wp_create_nonce( 'create_bulk_codes_nonce' );
             <label for="product_category">Product Kategorie (exkludieren)</label>
             <select name="product_category" id="product_category">
                 <option value="">Select a category</option>
-                <?php foreach ( get_terms( 'product_cat' ) as $term ) : ?>
-                    <option value="<?php echo esc_attr( $term->term_id ); ?>">
-                        <?php echo esc_html( $term->name ); ?>
+                <?php foreach (get_terms('product_cat') as $term) { ?>
+                    <option value="<?php echo esc_attr($term->term_id); ?>">
+                        <?php echo esc_html($term->name); ?>
                     </option>
-                <?php endforeach; ?>
+                <?php } ?>
             </select>
         </div>
 
