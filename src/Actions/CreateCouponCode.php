@@ -12,7 +12,17 @@ class CreateCouponCode
         string $email,
         int $amount,
         array $categories = []
-    ): \WC_Coupon {
+    ): null|\WC_Coupon {
+
+        if ($this->checkIfCouponExists($email)) {
+            return null;
+        }
+
+        return $this->createCouponCode($email, $amount, $categories);
+    }
+
+    private function createCouponCode(string $email, int $amount, array $categories = []): \WC_Coupon
+    {
         $coupon = new \WC_Coupon();
 
         $coupon->set_code(md5($email));
@@ -34,4 +44,10 @@ class CreateCouponCode
 
         return $coupon;
     }
+
+    private function checkIfCouponExists(string $email): bool
+    {
+        return (bool) \wc_get_coupon_id_by_code(md5($email));
+    }
+
 }

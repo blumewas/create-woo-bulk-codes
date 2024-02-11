@@ -52,9 +52,14 @@ class AdminAjax
                 if (! empty($email)) {
                     $coupon = (new CreateCouponCode)($email, $amount, [$category]);
 
+                    if ($coupon === null) {
+                        $coupons[$email] = 'Skipped (already exists)';
+                        continue;
+                    }
+
                     $coupons[$email] = $coupon->get_code();
 
-                    // TODO send email
+                    // TODO make nice email
                     wp_mail(
                         $email,
                         "Dein Persönlicher Gutscheincode für $title",
